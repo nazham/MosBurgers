@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOS Burgers - Management System</title>
-    <link rel="stylesheet" href="./asset/css/style.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -91,13 +91,13 @@
             <section id="store" class="content-section">
                 <div class="section-header">
                     <h1>Store Management</h1>
-                    <button class="btn btn-primary" onclick="showAddItemModal()">
+                    <button class="btn btn-primary" onclick="StoreManager.showAddItemModal()">
                         <i class="fas fa-plus"></i> Add New Item
                     </button>
                 </div>
 
                 <div class="filters">
-                    <select id="category-filter" onchange="filterItems()">
+                    <select id="category-filter" onchange="StoreManager.filterItems()">
                         <option value="">All Categories</option>
                         <option value="Burgers">Burgers</option>
                         <option value="Submarines">Submarines</option>
@@ -106,7 +106,7 @@
                         <option value="Chicken">Chicken</option>
                         <option value="Beverages">Beverages</option>
                     </select>
-                    <input type="text" id="search-items" placeholder="Search items..." onkeyup="searchItems()">
+                    <input type="text" id="search-items" placeholder="Search items..." onkeyup="StoreManager.searchItems()">
                 </div>
 
                 <div class="items-grid" id="items-container"></div>
@@ -116,13 +116,13 @@
             <section id="orders" class="content-section">
                 <div class="section-header">
                     <h1>Order Management</h1>
-                    <button class="btn btn-primary" onclick="showNewOrderModal()">
+                    <button class="btn btn-primary" onclick="OrderManager.showNewOrderModal()">
                         <i class="fas fa-plus"></i> New Order
                     </button>
                 </div>
 
                 <div class="order-search">
-                    <input type="text" id="order-search" placeholder="Search by Order ID or Customer Phone..." onkeyup="searchOrders()">
+                    <input type="text" id="order-search" placeholder="Search by Order ID or Customer Phone..." onkeyup="OrderManager.searchOrders()">
                 </div>
 
                 <div class="orders-list" id="orders-container"></div>
@@ -132,13 +132,13 @@
             <section id="customers" class="content-section">
                 <div class="section-header">
                     <h1>Customer Management</h1>
-                    <button class="btn btn-primary" onclick="showAddCustomerModal()">
+                    <button class="btn btn-primary" onclick="CustomerManager.showAddCustomerModal()">
                         <i class="fas fa-plus"></i> Add Customer
                     </button>
                 </div>
 
                 <div class="customer-search">
-                    <input type="text" id="customer-search" placeholder="Search customers..." onkeyup="searchCustomers()">
+                    <input type="text" id="customer-search" placeholder="Search customers..." onkeyup="CustomerManager.searchCustomers()">
                 </div>
 
                 <div class="customers-list" id="customers-container"></div>
@@ -153,7 +153,7 @@
                 <div class="reports-grid">
                     <div class="report-card">
                         <h3>Monthly Sales Report</h3>
-                        <select id="month-select" onchange="generateMonthlySalesReport()">
+                        <select id="month-select" onchange="ReportsManager.generateMonthlySalesReport()">
                             <option value="">Select Month</option>
                         </select>
                         <div id="monthly-report" class="report-content"></div>
@@ -166,7 +166,7 @@
 
                     <div class="report-card">
                         <h3>Annual Sales Report</h3>
-                        <select id="year-select" onchange="generateAnnualReport()">
+                        <select id="year-select" onchange="ReportsManager.generateAnnualReport()">
                             <option value="">Select Year</option>
                         </select>
                         <div id="annual-report" class="report-content"></div>
@@ -182,7 +182,7 @@
         <div id="item-modal" class="modal">
             <div class="modal-header">
                 <h3 id="item-modal-title">Add New Item</h3>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <button class="close-btn" onclick="UIManager.closeModal()">&times;</button>
             </div>
             <form id="item-form" class="modal-body">
                 <div class="form-group">
@@ -222,7 +222,7 @@
                     <input type="date" id="item-expiry">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="button" class="btn btn-secondary" onclick="UIManager.closeModal()">Cancel</button>
                     <button type="submit" class="btn btn-primary">Save Item</button>
                 </div>
             </form>
@@ -232,7 +232,7 @@
         <div id="order-modal" class="modal large-modal">
             <div class="modal-header">
                 <h3>New Order</h3>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <button class="close-btn" onclick="UIManager.closeModal()">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="order-form-container">
@@ -240,7 +240,7 @@
                         <h4>Customer Information</h4>
                         <div class="form-group">
                             <label>Customer Phone</label>
-                            <input type="tel" id="customer-phone" placeholder="Enter phone number" onblur="loadCustomerInfo()">
+                            <input type="tel" id="customer-phone" placeholder="Enter phone number" onblur="OrderManager.loadCustomerInfo()">
                         </div>
                         <div class="form-group">
                             <label>Customer Name</label>
@@ -255,7 +255,7 @@
                     <div class="items-section">
                         <h4>Add Items</h4>
                         <div class="item-search">
-                            <input type="text" id="item-search" placeholder="Search by name, code, or category..." onkeyup="searchMenuItems()">
+                            <input type="text" id="item-search" placeholder="Search by name, code, or category..." onkeyup="OrderManager.searchMenuItems()">
                         </div>
                         <div class="menu-items" id="menu-items-container"></div>
                     </div>
@@ -266,7 +266,7 @@
                         <div class="order-totals">
                             <div class="discount-section">
                                 <label>Order Discount (%)</label>
-                                <input type="number" id="order-discount" min="0" max="100" value="0" onchange="calculateOrderTotal()">
+                                <input type="number" id="order-discount" min="0" max="100" value="0" onchange="OrderManager.calculateOrderTotal()">
                             </div>
                             <div class="total-section">
                                 <div class="total-line">
@@ -286,8 +286,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="completeOrder()">Complete Order</button>
+                    <button type="button" class="btn btn-secondary" onclick="UIManager.closeModal()">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="OrderManager.completeOrder()">Complete Order</button>
                 </div>
             </div>
         </div>
@@ -296,7 +296,7 @@
         <div id="customer-modal" class="modal">
             <div class="modal-header">
                 <h3 id="customer-modal-title">Add Customer</h3>
-                <button class="close-btn" onclick="closeModal()">&times;</button>
+                <button class="close-btn" onclick="UIManager.closeModal()">&times;</button>
             </div>
             <form id="customer-form" class="modal-body">
                 <div class="form-group">
@@ -316,14 +316,26 @@
                     <input type="email" id="customer-form-email">
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+                    <button type="button" class="btn btn-secondary" onclick="UIManager.closeModal()">Cancel</button>
                     <button type="submit" class="btn btn-primary">Save Customer</button>
                 </div>
             </form>
         </div>
     </div>
 
+    <!-- External Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="asset/js/script.js"></script>
+    
+    <!-- Application Scripts - Load in dependency order -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/utils.js"></script>
+    <script src="assets/js/storage.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/store.js"></script>
+    <script src="assets/js/orders.js"></script>
+    <script src="assets/js/customers.js"></script>
+    <script src="assets/js/reports.js"></script>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
