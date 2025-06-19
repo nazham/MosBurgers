@@ -71,3 +71,6 @@ const Utils = {
     return JSON.parse(JSON.stringify(obj))
   },
 }
+
+// Make Utils available globally
+window.Utils = Utils

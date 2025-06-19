@@ -7,7 +7,15 @@ const StorageManager = {
 
   loadMenuItems() {
     const saved = localStorage.getItem("menuItems")
-    return saved ? JSON.parse(saved) : DEFAULT_MENU_ITEMS
+    if (saved) {
+      try {
+        return JSON.parse(saved)
+      } catch (error) {
+        console.error("Error parsing menu items from localStorage:", error)
+        return typeof DEFAULT_MENU_ITEMS !== "undefined" ? DEFAULT_MENU_ITEMS : []
+      }
+    }
+    return typeof DEFAULT_MENU_ITEMS !== "undefined" ? DEFAULT_MENU_ITEMS : []
   },
 
   // Orders
@@ -17,7 +25,15 @@ const StorageManager = {
 
   loadOrders() {
     const saved = localStorage.getItem("orders")
-    return saved ? JSON.parse(saved) : DUMMY_ORDERS
+    if (saved) {
+      try {
+        return JSON.parse(saved)
+      } catch (error) {
+        console.error("Error parsing orders from localStorage:", error)
+        return typeof DUMMY_ORDERS !== "undefined" ? DUMMY_ORDERS : []
+      }
+    }
+    return typeof DUMMY_ORDERS !== "undefined" ? DUMMY_ORDERS : []
   },
 
   // Customers
@@ -27,7 +43,15 @@ const StorageManager = {
 
   loadCustomers() {
     const saved = localStorage.getItem("customers")
-    return saved ? JSON.parse(saved) : DUMMY_CUSTOMERS
+    if (saved) {
+      try {
+        return JSON.parse(saved)
+      } catch (error) {
+        console.error("Error parsing customers from localStorage:", error)
+        return typeof DUMMY_CUSTOMERS !== "undefined" ? DUMMY_CUSTOMERS : []
+      }
+    }
+    return typeof DUMMY_CUSTOMERS !== "undefined" ? DUMMY_CUSTOMERS : []
   },
 
   // Clear all data
@@ -54,3 +78,6 @@ const StorageManager = {
     if (data.customers) this.saveCustomers(data.customers)
   },
 }
+
+// Make StorageManager available globally
+window.StorageManager = StorageManager

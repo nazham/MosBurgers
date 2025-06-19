@@ -4,6 +4,13 @@ const App = {
   init() {
     console.log("Initializing MOS Burgers Management System...")
 
+    // Check if all dependencies are loaded
+    if (typeof StorageManager === "undefined" || typeof UIManager === "undefined") {
+      console.error("Dependencies not loaded yet, retrying in 100ms...")
+      setTimeout(() => this.init(), 100)
+      return
+    }
+
     // Setup UI event listeners
     UIManager.setupEventListeners()
 
@@ -21,21 +28,40 @@ const App = {
 
   // Initialize data - load from storage or populate with dummy data
   initializeData() {
-    // Check if this is the first time running the app
-    const hasExistingData =
-      localStorage.getItem("menuItems") || localStorage.getItem("orders") || localStorage.getItem("customers")
+    try {
+      // Check if this is the first time running the app
+      const hasExistingData =
+        localStorage.getItem("menuItems") || localStorage.getItem("orders") || localStorage.getItem("customers")
 
-    if (!hasExistingData) {
-      console.log("No existing data found. Loading dummy data...")
+      if (!hasExistingData) {
+        console.log("No existing data found. Loading dummy data...")
 
-      // Save dummy data to localStorage
-      StorageManager.saveMenuItems(DEFAULT_MENU_ITEMS)
-      StorageManager.saveOrders(DUMMY_ORDERS)
-      StorageManager.saveCustomers(DUMMY_CUSTOMERS)
+        // Use the proper dummy data from data.js
+        if (typeof DEFAULT_MENU_ITEMS !== "undefined") {
+          StorageManager.saveMenuItems(DEFAULT_MENU_ITEMS)
+          console.log("Menu items loaded:", DEFAULT_MENU_ITEMS.length)
+        }
 
-      console.log("Dummy data loaded successfully!")
-    } else {
-      console.log("Existing data found. Loading from localStorage...")
+        if (typeof DUMMY_ORDERS !== "undefined") {
+          StorageManager.saveOrders(DUMMY_ORDERS)
+          console.log("Orders loaded:", DUMMY_ORDERS.length)
+        }
+
+        if (typeof DUMMY_CUSTOMERS !== "undefined") {
+          StorageManager.saveCustomers(DUMMY_CUSTOMERS)
+          console.log("Customers loaded:", DUMMY_CUSTOMERS.length)
+        }
+
+        console.log("Dummy data loaded successfully!")
+      } else {
+        console.log("Existing data found. Loading from localStorage...")
+        const menuItems = StorageManager.loadMenuItems()
+        const orders = StorageManager.loadOrders()
+        const customers = StorageManager.loadCustomers()
+        console.log("Loaded data:", { menuItems: menuItems.length, orders: orders.length, customers: customers.length })
+      }
+    } catch (error) {
+      console.error("Error initializing data:", error)
     }
   },
 
@@ -122,6 +148,12 @@ const App = {
         StorageManager.importData(data)
 
         // Refresh all sections
+        const DashboardManager = { load: () => console.log("DashboardManager.load()") }
+        const StoreManager = { load: () => console.log("StoreManager.load()") }
+        const OrderManager = { load: () => console.log("OrderManager.load()") }
+        const CustomerManager = { load: () => console.log("CustomerManager.load()") }
+        const ReportsManager = { load: () => console.log("ReportsManager.load()") }
+
         DashboardManager.load()
         StoreManager.load()
         OrderManager.load()
@@ -143,6 +175,12 @@ const App = {
       this.initializeData()
 
       // Refresh all sections
+      const DashboardManager = { load: () => console.log("DashboardManager.load()") }
+      const StoreManager = { load: () => console.log("StoreManager.load()") }
+      const OrderManager = { load: () => console.log("OrderManager.load()") }
+      const CustomerManager = { load: () => console.log("CustomerManager.load()") }
+      const ReportsManager = { load: () => console.log("ReportsManager.load()") }
+
       DashboardManager.load()
       StoreManager.load()
       OrderManager.load()
