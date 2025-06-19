@@ -8,7 +8,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 750.0,
     discount: 0,
     quantity: 50,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1002",
@@ -17,7 +17,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1500.0,
     discount: 15,
     quantity: 30,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1003",
@@ -26,7 +26,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1600.0,
     discount: 0,
     quantity: 25,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1004",
@@ -35,7 +35,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1400.0,
     discount: 0,
     quantity: 40,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1005",
@@ -44,7 +44,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 800.0,
     discount: 20,
     quantity: 35,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1006",
@@ -53,7 +53,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1000.0,
     discount: 0,
     quantity: 30,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1007",
@@ -62,7 +62,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 600.0,
     discount: 0,
     quantity: 25,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1008",
@@ -71,7 +71,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 650.0,
     discount: 15,
     quantity: 20,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1009",
@@ -80,7 +80,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 800.0,
     discount: 0,
     quantity: 30,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1010",
@@ -98,7 +98,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1250.0,
     discount: 20,
     quantity: 20,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1013",
@@ -107,7 +107,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1200.0,
     discount: 0,
     quantity: 25,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1014",
@@ -116,7 +116,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1600.0,
     discount: 10,
     quantity: 20,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1015",
@@ -125,7 +125,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 900.0,
     discount: 0,
     quantity: 25,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
 
   // Submarines
@@ -136,7 +136,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 2000.0,
     discount: 0,
     quantity: 20,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1017",
@@ -145,7 +145,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1500.0,
     discount: 0,
     quantity: 25,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1018",
@@ -154,7 +154,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1800.0,
     discount: 3,
     quantity: 20,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1019",
@@ -163,7 +163,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1400.0,
     discount: 0,
     quantity: 25,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1020",
@@ -172,7 +172,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 2300.0,
     discount: 0,
     quantity: 15,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1021",
@@ -181,7 +181,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 2200.0,
     discount: 0,
     quantity: 20,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1022",
@@ -190,7 +190,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1900.0,
     discount: 16,
     quantity: 15,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1023",
@@ -199,7 +199,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 2800.0,
     discount: 0,
     quantity: 10,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1024",
@@ -208,7 +208,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 3000.0,
     discount: 0,
     quantity: 10,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
 
   // Fries
@@ -219,7 +219,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1200.0,
     discount: 0,
     quantity: 40,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1026",
@@ -228,7 +228,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 600.0,
     discount: 0,
     quantity: 50,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1027",
@@ -237,7 +237,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 800.0,
     discount: 0,
     quantity: 40,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1028",
@@ -246,7 +246,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 650.0,
     discount: 0,
     quantity: 50,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1029",
@@ -255,7 +255,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 450.0,
     discount: 0,
     quantity: 60,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1030",
@@ -264,7 +264,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 600.0,
     discount: 0,
     quantity: 30,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
 
   // Pasta
@@ -275,7 +275,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1600.0,
     discount: 15,
     quantity: 25,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1032",
@@ -284,7 +284,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1700.0,
     discount: 0,
     quantity: 20,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1033",
@@ -293,7 +293,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 2900.0,
     discount: 10,
     quantity: 15,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1034",
@@ -311,7 +311,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1950.0,
     discount: 0,
     quantity: 25,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1036",
@@ -320,7 +320,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 2400.0,
     discount: 1,
     quantity: 15,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1037",
@@ -329,7 +329,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 2000.0,
     discount: 1,
     quantity: 20,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
 
   // Chicken
@@ -340,7 +340,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 1200.0,
     discount: 0,
     quantity: 30,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1039",
@@ -349,7 +349,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 2300.0,
     discount: 10,
     quantity: 25,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1040",
@@ -358,7 +358,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 3100.0,
     discount: 5,
     quantity: 20,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1041",
@@ -367,7 +367,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 2400.0,
     discount: 0,
     quantity: 25,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1042",
@@ -376,7 +376,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 900.0,
     discount: 0,
     quantity: 30,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
   {
     id: "B1043",
@@ -385,7 +385,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 2100.0,
     discount: 0,
     quantity: 25,
-    expiry: "2024-12-31",
+    expiry: "2025-12-31",
   },
 
   // Beverages
@@ -423,7 +423,7 @@ const DEFAULT_MENU_ITEMS = [
     price: 850.0,
     discount: 7,
     quantity: 100,
-    expiry: "2025-06-30",
+    expiry: "2024-06-30",
   },
 ]
 

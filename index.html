@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MOS Burgers - Management System</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/order-modal.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
@@ -228,66 +229,116 @@
             </form>
         </div>
 
-        <!-- New Order Modal -->
+        <!-- Enhanced New Order Modal - Optimized Layout -->
         <div id="order-modal" class="modal large-modal">
             <div class="modal-header">
-                <h3>New Order</h3>
+                <h3><i class="fas fa-shopping-cart"></i> Create New Order</h3>
                 <button class="close-btn" onclick="UIManager.closeModal()">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="order-form-container">
-                    <div class="customer-section">
-                        <h4>Customer Information</h4>
-                        <div class="form-group">
-                            <label>Customer Phone</label>
-                            <input type="tel" id="customer-phone" placeholder="Enter phone number" onblur="OrderManager.loadCustomerInfo()">
-                        </div>
-                        <div class="form-group">
-                            <label>Customer Name</label>
-                            <input type="text" id="customer-name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Customer Address</label>
-                            <input type="text" id="customer-address">
-                        </div>
-                    </div>
-
-                    <div class="items-section">
-                        <h4>Add Items</h4>
-                        <div class="item-search">
-                            <input type="text" id="item-search" placeholder="Search by name, code, or category..." onkeyup="OrderManager.searchMenuItems()">
-                        </div>
-                        <div class="menu-items" id="menu-items-container"></div>
-                    </div>
-
-                    <div class="cart-section">
-                        <h4>Order Cart</h4>
-                        <div id="order-cart" class="cart-items"></div>
-                        <div class="order-totals">
-                            <div class="discount-section">
-                                <label>Order Discount (%)</label>
-                                <input type="number" id="order-discount" min="0" max="100" value="0" onchange="OrderManager.calculateOrderTotal()">
+                <div class="order-modal-container">
+                    <!-- Left Panel: Customer Search & Menu Items -->
+                    <div class="order-left-panel">
+                        <!-- Customer Search Section -->
+                        <div class="customer-search-section">
+                            <h4><i class="fas fa-user-search"></i> Customer</h4>
+                            <div class="customer-search-container">
+                                <input type="text" 
+                                       id="customer-search-input" 
+                                       class="customer-search-input"
+                                       placeholder="Search by phone or name..."
+                                       onkeyup="OrderManager.searchCustomers()">
+                                <i class="fas fa-search search-icon"></i>
                             </div>
-                            <div class="total-section">
+                            <div id="customer-search-results">
+                                <div class="customer-search-placeholder">
+                                    <i class="fas fa-search" style="font-size: 1.5rem; color: #ddd; margin-bottom: 8px;"></i>
+                                    <p style="margin: 0; font-size: 13px;">Start typing to search...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Menu Items Section -->
+                        <div class="menu-items-section">
+                            <h4><i class="fas fa-utensils"></i> Menu Items</h4>
+                            <div class="menu-search-container">
+                                <input type="text" 
+                                       id="menu-search-input" 
+                                       class="menu-search-input"
+                                       placeholder="Search menu items..."
+                                       onkeyup="OrderManager.searchMenuItems()">
+                                <i class="fas fa-search search-icon"></i>
+                            </div>
+                            <div class="menu-items-grid" id="menu-items-grid"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel: Cart & Order Summary -->
+                    <div class="order-right-panel">
+                        <!-- Cart Section -->
+                        <div class="cart-section">
+                            <div class="cart-header">
+                                <h4 class="cart-title">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    Cart
+                                    <span class="cart-count" id="cart-count">0</span>
+                                </h4>
+                                <button class="clear-cart-btn" onclick="OrderManager.clearCart()">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="cart-content" id="cart-content">
+                                <div class="cart-empty">
+                                    <div class="cart-empty-icon">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </div>
+                                    <h5 style="margin: 0 0 5px 0; font-size: 14px;">Cart is empty</h5>
+                                    <p style="margin: 0; font-size: 12px;">Add items from menu</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Order Summary -->
+                        <div class="order-summary">
+                            <div class="discount-section">
+                                <label for="order-discount-input">Discount (%)</label>
+                                <input type="number" 
+                                       id="order-discount-input" 
+                                       class="discount-input"
+                                       min="0" 
+                                       max="100" 
+                                       value="0"
+                                       onchange="OrderManager.calculateOrderTotal()">
+                            </div>
+                            
+                            <div class="order-totals">
                                 <div class="total-line">
-                                    <span>Subtotal: </span>
+                                    <span>Subtotal:</span>
                                     <span id="order-subtotal">LKR 0.00</span>
                                 </div>
                                 <div class="total-line">
-                                    <span>Discount: </span>
+                                    <span>Discount:</span>
                                     <span id="order-discount-amount">LKR 0.00</span>
                                 </div>
-                                <div class="total-line final-total">
-                                    <span>Total: </span>
+                                <div class="total-line final">
+                                    <span>Total:</span>
                                     <span id="order-total">LKR 0.00</span>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Complete Order Section -->
+                        <div class="complete-order-section">
+                            <button id="complete-order-btn" 
+                                    class="complete-order-btn disabled" 
+                                    onclick="OrderManager.completeOrder()" 
+                                    disabled>
+                                <i class="fas fa-shopping-cart"></i>
+                                Add items to cart
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="UIManager.closeModal()">Cancel</button>
-                    <button type="button" class="btn btn-primary" onclick="OrderManager.completeOrder()">Complete Order</button>
                 </div>
             </div>
         </div>
@@ -326,7 +377,7 @@
     <!-- External Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     
-    <!-- Application Scripts - Load in dependency order -->
+    <!-- Application Scripts - Load in strict dependency order -->
     <script src="assets/js/data.js"></script>
     <script src="assets/js/utils.js"></script>
     <script src="assets/js/storage.js"></script>
@@ -336,6 +387,7 @@
     <script src="assets/js/orders.js"></script>
     <script src="assets/js/customers.js"></script>
     <script src="assets/js/reports.js"></script>
+    <!-- App.js must be loaded LAST -->
     <script src="assets/js/app.js"></script>
 </body>
 </html>
